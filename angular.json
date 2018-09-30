@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "inz": {
+    "caradvisor-cleint": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/inz",
+            "outputPath": "dist/caradvisor-cleint",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "inz:build"
+            "browserTarget": "caradvisor-cleint:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "inz:build:production"
+              "browserTarget": "caradvisor-cleint:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "inz:build"
+            "browserTarget": "caradvisor-cleint:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "inz-e2e": {
+    "caradvisor-cleint-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "inz:serve"
+            "devServerTarget": "caradvisor-cleint:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "inz:serve:production"
+              "devServerTarget": "caradvisor-cleint:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "inz"
+  "defaultProject": "caradvisor-cleint"
 }
