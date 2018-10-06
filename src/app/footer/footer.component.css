@@ -7,3 +7,7 @@
   margin: 5px;
   resize: none;
 }
+
+.fixed-bottom {
+  background-color: white;
+}
