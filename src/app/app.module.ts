@@ -7,6 +7,7 @@ import {ContentComponent} from './content/content.component';
 import {FooterComponent} from './footer/footer.component';
 import {AnswerComponent} from './content/answer/answer.component';
 import {QuestionComponent} from './content/question/question.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {QuestionComponent} from './content/question/question.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
