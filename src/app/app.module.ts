@@ -8,6 +8,8 @@ import {FooterComponent} from './footer/footer.component';
 import {AnswerComponent} from './content/answer/answer.component';
 import {QuestionComponent} from './content/question/question.component';
 import {CookieService} from 'ngx-cookie-service';
+import {MessageService} from './shared/message.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,10 @@ import {CookieService} from 'ngx-cookie-service';
     QuestionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, MessageService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule {
