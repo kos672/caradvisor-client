@@ -1,28 +1,4 @@
 <div class="content">
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
-  <app-question></app-question>
-  <app-answer></app-answer>
+  <app-message class="my-message" [message]="message"
+               *ngFor="let message of messages"></app-message>
 </div>
-
-

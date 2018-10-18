@@ -1,4 +1,27 @@
 .content {
   margin-bottom: 100px;
   overflow: hidden;
+  display: flex;
+  flex-flow: column wrap;
 }
+
+.my-message:nth-child(odd) {
+  background-color: #C0504D;
+  padding: 5px 10px;
+  border-radius: 15px;
+  color: white;
+  margin-top: 16px;
+  margin-left: 10px;
+  align-self: flex-start;
+}
+
+.my-message:nth-child(even) {
+  padding: 5px 10px;
+  background-color: #4b92ea;
+  border-radius: 15px;
+  color: white;
+  margin-right: 10px;
+  align-self: flex-end;
+}
+
+

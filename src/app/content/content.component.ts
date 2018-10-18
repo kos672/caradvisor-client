@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Question} from './question/question.model';
-import {Answer} from './answer/answer.model';
+import {GlobalConstants} from '../shared/global-constants';
 
 @Component({
   selector: 'app-content',
@@ -9,12 +8,13 @@ import {Answer} from './answer/answer.model';
 })
 export class ContentComponent implements OnInit {
 
-  messages: Question | Answer[];
+  messages = [];
 
   constructor() {
   }
 
   ngOnInit() {
+    this.messages.push({text: GlobalConstants.ASK_NAME_QUESTION});
   }
 
 }
