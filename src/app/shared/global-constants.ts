@@ -12,5 +12,11 @@ export class GlobalConstants {
   static readonly TRUE = 'true';
   static readonly FALSE = 'false';
 
+  /* API paths */
+  static readonly NAME_PATH = 'http://localhost:8080/name';
+
+  /* Questions templates */
+  static ASK_NAME_QUESTION = 'Dzień dobry. Wita doradca samochodowy CarAdvisor. Jak Pan/Pani ma na imię?';
+
 
 }
