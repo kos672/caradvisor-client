@@ -11,7 +11,7 @@ export class NameService {
   }
 
   nameRequest(messageWithName: string) {
-    return this.http.get(GlobalConstants.NAME_PATH);
+    return this.http.post(GlobalConstants.NAME_PATH, messageWithName);
   }
 
 
