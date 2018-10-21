@@ -30,7 +30,7 @@ export class MessageService {
           this.messages.push({text: GlobalConstants.IMPOSSIBLE_RECOGNIZE_NAME});
         }
       );
-    } else if (false) {
+    } else if (!(this.cookieService.get(GlobalConstants.HAS_COUNTRY_PREFS) == GlobalConstants.TRUE)) {
 
     } else if (false) {
 

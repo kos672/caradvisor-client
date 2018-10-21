@@ -17,6 +17,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.cookieService.set(GlobalConstants.IS_NAME_KNOWN, GlobalConstants.FALSE);
+    this.cookieService.set(GlobalConstants.HAS_COUNTRY_PREFS, GlobalConstants.FALSE);
     this.cookieService.set(GlobalConstants.IS_ENGINE_TYPE_KNOWN, GlobalConstants.FALSE);
     this.cookieService.set(GlobalConstants.IS_ENGINE_DISPLACEMENT_KNOWN, GlobalConstants.FALSE);
     this.cookieService.set(GlobalConstants.IS_TRANSMISSION_KNOWN, GlobalConstants.FALSE);

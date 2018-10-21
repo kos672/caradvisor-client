@@ -1,6 +1,7 @@
 export class GlobalConstants {
   /* Cookies */
   static readonly IS_NAME_KNOWN = 'IS_NAME_KNOWN';
+  static readonly HAS_COUNTRY_PREFS = 'HAS_COUNTRY_PREFS';
   static readonly IS_ENGINE_TYPE_KNOWN = 'IS_ENGINE_TYPE_KNOWN';
   static readonly IS_ENGINE_DISPLACEMENT_KNOWN = 'IS_ENGINE_DISPLACEMENT_KNOWN';
   static readonly IS_TRANSMISSION_KNOWN = 'IS_TRANSMISSION_KNOWN';
