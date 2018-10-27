@@ -28,6 +28,7 @@ export class FooterComponent implements OnInit {
 
   send() {
     let message = this.messageToSend.nativeElement.value;
+    this.messageToSend.nativeElement.value = '';
     this.messageService.messages.push({text: message});
     this.messageService.onSend(message);
   }
