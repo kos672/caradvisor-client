@@ -2,13 +2,15 @@ import {Injectable} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {NameService} from './name.service';
 import {GlobalConstants} from './global-constants';
+import {CountryPrefsService} from './country-prefs.service';
 
 @Injectable()
 export class MessageService {
 
   messages = [];
 
-  constructor(private cookieService: CookieService, private nameService: NameService) {
+  constructor(private cookieService: CookieService, private nameService: NameService,
+              private countryPrefsService: CountryPrefsService) {
   }
 
   // this.isEngineTypeKnown = this.cookieService.get(GlobalConstants.IS_ENGINE_TYPE_KNOWN) == 'true';
@@ -31,10 +33,32 @@ export class MessageService {
         }
       );
     } else if (!(this.cookieService.get(GlobalConstants.HAS_COUNTRY_PREFS) == GlobalConstants.TRUE)) {
-
-    } else if (false) {
-
-    } else if (false) {
+      this.countryPrefsService.preferencesRequest(message).subscribe(
+        (res) => {
+          if (res['preferences'] == 'y') {
+            this.cookieService.set(GlobalConstants.HAS_COUNTRY_PREFS, GlobalConstants.TRUE);
+            this.messages.push({text: GlobalConstants.ASK_ABOUT_COUNTRY});
+          } else {
+            this.cookieService.set(GlobalConstants.HAS_COUNTRY_PREFS, GlobalConstants.FALSE);
+          }
+        }, error => {
+          console.log(error);
+          this.messages.push({text: GlobalConstants.CANT_RECOGNIZE_PREFS.replace('%gend%', this.cookieService.get('gender'))});
+        }
+      );
+    } else if (this.cookieService.get(GlobalConstants.IS_COUNTRY_KNOWN) == GlobalConstants.TRUE &&
+      (this.cookieService.get(GlobalConstants.HAS_COUNTRY_PREFS) == GlobalConstants.TRUE)) {
+      console.log(this.cookieService.get(GlobalConstants.IS_COUNTRY_KNOWN) == GlobalConstants.TRUE);
+      this.countryPrefsService.countryRequest(message).subscribe(
+        (res) => {
+          this.cookieService.set('country', res['country']);
+          this.cookieService.set(GlobalConstants.IS_COUNTRY_KNOWN, GlobalConstants.TRUE);
+        }, error => {
+          console.log(error);
+          this.messages.push({text: GlobalConstants.CANT_RECOGNIZE_COUNTRY});
+        }
+      );
+    } else if (!(this.cookieService.get(GlobalConstants.IS_ENGINE_TYPE_KNOWN) == GlobalConstants.TRUE)) {
 
     } else if (false) {
 

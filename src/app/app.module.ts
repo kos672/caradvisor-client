@@ -9,6 +9,7 @@ import {MessageComponent} from './content/message/message.component';
 import {CookieService} from 'ngx-cookie-service';
 import {MessageService} from './shared/message.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {CountryPrefsService} from './shared/country-prefs.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [CookieService, MessageService, HttpClient],
+  providers: [CookieService, MessageService, HttpClient, CountryPrefsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
