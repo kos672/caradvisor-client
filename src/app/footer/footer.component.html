@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-11">
       <div class="form-group">
-        <textarea class="form-control text-msg" type="text" rows="3" #message></textarea>
+        <input class="form-control text-msg" type="text" (keyup.enter)="send()" #message>
       </div>
     </div>
     <button class="col-md-1 btn btn-info" (click)="send()">Wyślij</button>
