@@ -2,14 +2,13 @@ export class GlobalConstants {
   static readonly CANT_RECOGNIZE_PREFS = 'Nie mogę zweryfikować czy %gend% ma preferencje. Proszę odpowiedzieć jeszcze raz.';
   /* Cookies */
   static readonly IS_NAME_KNOWN = 'IS_NAME_KNOWN';
-  static readonly HAS_COUNTRY_PREFS = 'HAS_COUNTRY_PREFS';
+  static readonly ASKED_ABOUT_COUNTRY_PREFS = 'ASKED_ABOUT_COUNTRY_PREFS';
   static readonly IS_COUNTRY_KNOWN = 'IS_COUNTRY_KNOWN';
-  static readonly IS_ENGINE_TYPE_KNOWN = 'IS_ENGINE_TYPE_KNOWN';
-  static readonly IS_ENGINE_DISPLACEMENT_KNOWN = 'IS_ENGINE_DISPLACEMENT_KNOWN';
-  static readonly IS_TRANSMISSION_KNOWN = 'IS_TRANSMISSION_KNOWN';
-  static readonly IS_DRIVETRAIN_KNOWN = 'IS_drivetrain_KNOWN';
-  static readonly IS_DOORS_KNOWN = 'IS_DOORS_KNOWN';
-  static readonly IS_SEATS_KNOWN = 'IS_SEATS_KNOWN';
+  static readonly HAS_FAMILY = 'HAS_FAMILY';
+  static readonly LIVING_LOCATION_KNOWN = 'LIVING_LOCATION_KNOWN';
+  static readonly YEARS_OF_RIDING_KNOWN = 'YEARS_OF_RIDING_KNOWN';
+  static readonly ABLE_TO_PAY_EXTRA = 'ABLE_TO_PAY_EXTRA';
+
   /* Boolean representation */
   static readonly TRUE = 'true';
 

@@ -17,13 +17,12 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.cookieService.set(GlobalConstants.IS_NAME_KNOWN, GlobalConstants.FALSE);
-    this.cookieService.set(GlobalConstants.HAS_COUNTRY_PREFS, GlobalConstants.FALSE);
-    this.cookieService.set(GlobalConstants.IS_ENGINE_TYPE_KNOWN, GlobalConstants.FALSE);
-    this.cookieService.set(GlobalConstants.IS_ENGINE_DISPLACEMENT_KNOWN, GlobalConstants.FALSE);
-    this.cookieService.set(GlobalConstants.IS_TRANSMISSION_KNOWN, GlobalConstants.FALSE);
-    this.cookieService.set(GlobalConstants.IS_DRIVETRAIN_KNOWN, GlobalConstants.FALSE);
-    this.cookieService.set(GlobalConstants.IS_DOORS_KNOWN, GlobalConstants.FALSE);
-    this.cookieService.set(GlobalConstants.IS_SEATS_KNOWN, GlobalConstants.FALSE);
+    this.cookieService.set(GlobalConstants.ASKED_ABOUT_COUNTRY_PREFS, GlobalConstants.FALSE);
+    this.cookieService.set(GlobalConstants.IS_COUNTRY_KNOWN, GlobalConstants.FALSE);
+    this.cookieService.set(GlobalConstants.HAS_FAMILY, GlobalConstants.FALSE);
+    this.cookieService.set(GlobalConstants.LIVING_LOCATION_KNOWN, GlobalConstants.FALSE);
+    this.cookieService.set(GlobalConstants.YEARS_OF_RIDING_KNOWN, GlobalConstants.FALSE);
+    this.cookieService.set(GlobalConstants.ABLE_TO_PAY_EXTRA, GlobalConstants.FALSE);
   }
 
   send() {
