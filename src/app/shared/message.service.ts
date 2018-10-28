@@ -32,40 +32,36 @@ export class MessageService {
           this.messages.push({text: GlobalConstants.IMPOSSIBLE_RECOGNIZE_NAME});
         }
       );
-    } else if (!(this.cookieService.get(GlobalConstants.HAS_COUNTRY_PREFS) == GlobalConstants.TRUE)) {
+    } else if (this.cookieService.get(GlobalConstants.ASKED_ABOUT_COUNTRY_PREFS) == GlobalConstants.FALSE) {
       this.countryPrefsService.preferencesRequest(message).subscribe(
         (res) => {
           if (res['preferences'] == 'y') {
-            this.cookieService.set(GlobalConstants.HAS_COUNTRY_PREFS, GlobalConstants.TRUE);
+            this.cookieService.set(GlobalConstants.ASKED_ABOUT_COUNTRY_PREFS, GlobalConstants.TRUE);
             this.messages.push({text: GlobalConstants.ASK_ABOUT_COUNTRY});
-          } else {
-            this.cookieService.set(GlobalConstants.HAS_COUNTRY_PREFS, GlobalConstants.FALSE);
+          } else if (res['preferences'] == 'n') {
+            this.cookieService.set(GlobalConstants.ASKED_ABOUT_COUNTRY_PREFS, GlobalConstants.TRUE);
+            this.messages.push({text: GlobalConstants.ASK_ABOUT_FAMILY.replace('%gend%', this.cookieService.get('gender'))});
           }
-        }, error => {
+        }, (error) => {
           console.log(error);
           this.messages.push({text: GlobalConstants.CANT_RECOGNIZE_PREFS.replace('%gend%', this.cookieService.get('gender'))});
         }
       );
-    } else if (this.cookieService.get(GlobalConstants.IS_COUNTRY_KNOWN) == GlobalConstants.TRUE &&
-      (this.cookieService.get(GlobalConstants.HAS_COUNTRY_PREFS) == GlobalConstants.TRUE)) {
-      console.log(this.cookieService.get(GlobalConstants.IS_COUNTRY_KNOWN) == GlobalConstants.TRUE);
+    } else if (this.cookieService.get(GlobalConstants.ASKED_ABOUT_COUNTRY_PREFS) == GlobalConstants.TRUE &&
+      this.cookieService.get(GlobalConstants.IS_COUNTRY_KNOWN) == GlobalConstants.FALSE) {
       this.countryPrefsService.countryRequest(message).subscribe(
         (res) => {
           this.cookieService.set('country', res['country']);
           this.cookieService.set(GlobalConstants.IS_COUNTRY_KNOWN, GlobalConstants.TRUE);
+          this.messages.push({text: GlobalConstants.ASK_ABOUT_FAMILY.replace('%gend%', this.cookieService.get('gender'))});
         }, error => {
           console.log(error);
           this.messages.push({text: GlobalConstants.CANT_RECOGNIZE_COUNTRY});
         }
       );
-    } else if (!(this.cookieService.get(GlobalConstants.IS_ENGINE_TYPE_KNOWN) == GlobalConstants.TRUE)) {
-
-    } else if (false) {
-
-    } else if (false) {
-
-    } else if (false) {
-
+    } else if (!(this.cookieService.get(GlobalConstants.HAS_FAMILY) == GlobalConstants.TRUE)) {
+      // family flow
+      // console.log('WORKS!!!');
     }
   }
 

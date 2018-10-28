@@ -27,6 +27,7 @@ export class GlobalConstants {
   static readonly ASK_COUNTRY_PREFERENCES = 'Czy ma %gend% preferencje dotyczące kraju pochodzenia producenta?';
   static readonly ASK_ABOUT_COUNTRY = 'Proszę podać preferowany kraj';
   static readonly CANT_RECOGNIZE_COUNTRY = 'Nie mogę zweryfikować podany kraj. Proszę podać ponownie.';
+  static readonly ASK_ABOUT_FAMILY = 'Czy ma %gend% rodzinę?';
 
 
 }
