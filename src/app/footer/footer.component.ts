@@ -19,6 +19,7 @@ export class FooterComponent implements OnInit {
     this.cookieService.set(GlobalConstants.IS_NAME_KNOWN, GlobalConstants.FALSE);
     this.cookieService.set(GlobalConstants.ASKED_ABOUT_COUNTRY_PREFS, GlobalConstants.FALSE);
     this.cookieService.set(GlobalConstants.IS_COUNTRY_KNOWN, GlobalConstants.FALSE);
+    this.cookieService.set(GlobalConstants.HAS_COUNTRY_PREFS, GlobalConstants.FALSE);
     this.cookieService.set(GlobalConstants.HAS_FAMILY, GlobalConstants.FALSE);
     this.cookieService.set(GlobalConstants.LIVING_LOCATION_KNOWN, GlobalConstants.FALSE);
     this.cookieService.set(GlobalConstants.YEARS_OF_RIDING_KNOWN, GlobalConstants.FALSE);
@@ -26,7 +27,7 @@ export class FooterComponent implements OnInit {
   }
 
   send() {
-    let message = this.messageToSend.nativeElement.value;
+    const message = this.messageToSend.nativeElement.value;
     this.messageToSend.nativeElement.value = '';
     this.messageService.messages.push({text: message});
     this.messageService.onSend(message);

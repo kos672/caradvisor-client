@@ -10,6 +10,8 @@ import {CookieService} from 'ngx-cookie-service';
 import {MessageService} from './shared/message.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CountryPrefsService} from './shared/country-prefs.service';
+import {FamilyService} from './shared/family.service';
+import {CarSelectionService} from './shared/car-selection.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import {CountryPrefsService} from './shared/country-prefs.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [CookieService, MessageService, HttpClient, CountryPrefsService],
+  providers: [CookieService, MessageService, HttpClient, CountryPrefsService, FamilyService, CarSelectionService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
