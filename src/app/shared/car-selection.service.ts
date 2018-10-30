@@ -6,13 +6,17 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class CarSelectionService {
 
-  requestCountryPrefs = new BehaviorSubject<{ countryPrefs: string }>({countryPrefs: ''});
+  requestCountryPrefs;
   requestFamily;
-  requestLivingLocation = new BehaviorSubject<{ livingLocation: string }>({livingLocation: ''});
-  requestYearsOfDriving = new BehaviorSubject<{ yearsOfDriving: number }>({yearsOfDriving: 0});
-  requestAbleToPayExtraForComfort = new BehaviorSubject<{ ableToPayForComfort: string }>({ableToPayForComfort: ''});
+  requestLivingLocation;
+  requestYearsOfDriving;
+  requestAbleToPayExtraForComfort;
 
   constructor() {
+    this.requestCountryPrefs = new BehaviorSubject<{ countryPrefs: string }>({countryPrefs: ''});
     this.requestFamily = new BehaviorSubject<{ family: string }>({family: ''});
+    this.requestLivingLocation = new BehaviorSubject<{ livingLocation: string }>({livingLocation: ''});
+    this.requestYearsOfDriving = new BehaviorSubject<{ yearsOfDriving: number }>({yearsOfDriving: 0});
+    this.requestAbleToPayExtraForComfort = new BehaviorSubject<{ ableToPayForComfort: string }>({ableToPayForComfort: ''});
   }
 }
