@@ -43,7 +43,9 @@ export class MessageService {
           this.messages.push({text: GlobalConstants.CANT_RECOGNIZE_PREFS.replace('%gend%', this.cookieService.get('gender'))});
         }
       );
-    } else if (this.cookieService.get(GlobalConstants.HAS_COUNTRY_PREFS) === GlobalConstants.TRUE) {
+    } else if (this.cookieService.get(GlobalConstants.HAS_COUNTRY_PREFS) === GlobalConstants.TRUE &&
+      this.cookieService.get(GlobalConstants.IS_COUNTRY_KNOWN) === GlobalConstants.FALSE
+    ) {
       this.countryPrefsService.countryRequest(message).subscribe(
         (res) => {
           this.cookieService.set('country', res['country']);
