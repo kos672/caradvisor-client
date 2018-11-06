@@ -5,6 +5,7 @@ import {GlobalConstants} from './global-constants';
 import {CountryPrefsService} from './country-prefs.service';
 import {FamilyService} from './family.service';
 import {CarSelectionService} from './car-selection.service';
+import {LocationService} from './location.service';
 
 @Injectable()
 export class MessageService {
@@ -12,7 +13,8 @@ export class MessageService {
   messages = [];
 
   constructor(private cookieService: CookieService, private carSelectionService: CarSelectionService,
-              private nameService: NameService, private countryPrefsService: CountryPrefsService, private familyService: FamilyService) {
+              private nameService: NameService, private countryPrefsService: CountryPrefsService, private familyService: FamilyService,
+              private locationService: LocationService) {
   }
 
   onSend(message: string) {
@@ -59,11 +61,23 @@ export class MessageService {
     } else if (!(this.cookieService.get(GlobalConstants.HAS_FAMILY) === GlobalConstants.TRUE)) {
       this.familyService.familyRequest(message).subscribe(
         (res) => {
+          this.messages.push({text: GlobalConstants.ASK_ABOUT_LIVING_LOCATION.replace('%gend%', this.cookieService.get('gender'))});
           this.carSelectionService.requestFamily.next(res['hasFamily']);
           this.cookieService.set(GlobalConstants.HAS_FAMILY, GlobalConstants.TRUE);
         }, (error) => {
           console.log(error);
-          this.messages.push(GlobalConstants.CANT_RECOGNIZE_FAMILY);
+          this.messages.push({text: GlobalConstants.CANT_RECOGNIZE_FAMILY.replace('%gend%', this.cookieService.get('gender'))});
+        }
+      );
+    } else if (!(this.cookieService.get(GlobalConstants.LIVING_LOCATION_KNOWN) === GlobalConstants.TRUE)) {
+      this.locationService.locationRequest(message).subscribe(
+        (res) => {
+          this.carSelectionService.requestLivingLocation.next(res['location']);
+          this.cookieService.set(GlobalConstants.LIVING_LOCATION_KNOWN, GlobalConstants.TRUE);
+          this.messages.push({text: GlobalConstants.ASK_ABOUT_EXPERIENCE});
+        }, (error) => {
+          console.log(error);
+          this.messages.push({text: GlobalConstants.CANT_RECOGNIZE_OFTEN_DRIVEN_LOCATION.replace('%gend%', this.cookieService.get('gender'))});
         }
       );
     }
