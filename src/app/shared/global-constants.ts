@@ -1,5 +1,4 @@
 export class GlobalConstants {
-  static readonly CANT_RECOGNIZE_PREFS = 'Nie mogę zweryfikować czy %gend% ma preferencje. Proszę odpowiedzieć jeszcze raz.';
   /* Cookies */
   static readonly IS_NAME_KNOWN = 'IS_NAME_KNOWN';
   static readonly ASKED_ABOUT_COUNTRY_PREFS = 'ASKED_ABOUT_COUNTRY_PREFS';
@@ -12,8 +11,8 @@ export class GlobalConstants {
 
   /* Boolean representation */
   static readonly TRUE = 'true';
-
   static readonly FALSE = 'false';
+
   /* API paths */
   static readonly rootPath = 'http://localhost:8080/';
 
@@ -22,18 +21,23 @@ export class GlobalConstants {
   static readonly COUNTRY_PATH = GlobalConstants.rootPath + 'country';
   static readonly FAMILY_PATH = GlobalConstants.rootPath + 'family';
   static readonly LOCATION_PATH = GlobalConstants.rootPath + 'location';
+  static readonly EXPERIENCE_PATH = GlobalConstants.rootPath + 'experience';
 
   /* Questions templates */
   static readonly ASK_NAME_QUESTION = 'Dzień dobry. Wita doradca samochodowy CarAdvisor. Jak Pan/Pani ma na imię?';
-  static readonly IMPOSSIBLE_RECOGNIZE_NAME = 'Niestety nie mogę rozpoznać imię. Proszę podać ponownie.';
   static readonly ASK_COUNTRY_PREFERENCES = 'Czy ma %gend% preferencje dotyczące kraju pochodzenia producenta?';
   static readonly ASK_ABOUT_COUNTRY = 'Proszę podać preferowany kraj';
-  static readonly CANT_RECOGNIZE_COUNTRY = 'Nie mogę zweryfikować podany kraj. Proszę podać ponownie.';
   static readonly ASK_ABOUT_FAMILY = 'Czy ma %gend% rodzinę?';
-  static readonly CANT_RECOGNIZE_FAMILY = 'Nie mogę pozpoznać czy %gend% ma rodzinę. Proszę odpowiedzieć jeszcze raz.';
   static readonly ASK_ABOUT_LIVING_LOCATION = 'Czy często %gend% będzie jeździć po terenach podmiejskich?';
-  static readonly CANT_RECOGNIZE_OFTEN_DRIVEN_LOCATION = 'Nie mogę rozpoznać na jakich terenach %gend% będzie częściej jeżdzić. Proszę odpowiedzieć ponownie.';
-  static readonly ASK_ABOUT_EXPERIENCE = 'Ile lat doświadczenia jazdy posiada $gend$?';
+  static readonly ASK_ABOUT_EXPERIENCE = 'Ile lat doświadczenia jazdy posiada %gend%?';
+  static readonly ASK_ABOUT_ABILITY_TO_PAY_FOR_COMFORT = 'Czy jest %gend% w stanie zapłacić więcej za komfort?';
 
+  /* Failure to recognize */
+  static readonly CANT_RECOGNIZE_PREFS = 'Nie mogę zweryfikować czy %gend% ma preferencje. Proszę odpowiedzieć jeszcze raz.';
+  static readonly IMPOSSIBLE_RECOGNIZE_NAME = 'Niestety nie mogę rozpoznać imię. Proszę podać ponownie.';
+  static readonly CANT_RECOGNIZE_COUNTRY = 'Nie mogę zweryfikować podany kraj. Proszę podać ponownie.';
+  static readonly CANT_RECOGNIZE_FAMILY = 'Nie mogę pozpoznać czy %gend% ma rodzinę. Proszę odpowiedzieć jeszcze raz.';
+  static readonly CANT_RECOGNIZE_OFTEN_DRIVEN_LOCATION = 'Nie mogę rozpoznać na jakich terenach %gend% będzie częściej jeżdzić. Proszę odpowiedzieć ponownie.';
+  static readonly CANT_RECOGNIZE_YEAR_EXPERIENCE = 'Niestety nie mogę na podstawie uzyskanej odpowiedzi oszacować ile %gend% ma lat doświadczenia w prowadzeniu samochodu.';
 
 }

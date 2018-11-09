@@ -12,6 +12,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CountryPrefsService} from './shared/country-prefs.service';
 import {FamilyService} from './shared/family.service';
 import {CarSelectionService} from './shared/car-selection.service';
+import {ExperienceService} from './shared/experience.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import {CarSelectionService} from './shared/car-selection.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [CookieService, MessageService, HttpClient, CountryPrefsService, FamilyService, CarSelectionService],
+  providers: [CookieService, MessageService, HttpClient, CountryPrefsService, FamilyService, CarSelectionService, ExperienceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
