@@ -7,6 +7,7 @@ import {FamilyService} from './family.service';
 import {CarSelectionService} from './car-selection.service';
 import {LocationService} from './location.service';
 import {ExperienceService} from './experience.service';
+import {PayForComfortService} from './pay-for-comfort.service';
 
 @Injectable()
 export class MessageService {
@@ -16,7 +17,8 @@ export class MessageService {
 
   constructor(private cookieService: CookieService, private carSelectionService: CarSelectionService,
               private nameService: NameService, private countryPrefsService: CountryPrefsService, private familyService: FamilyService,
-              private locationService: LocationService, private experienceService: ExperienceService) {
+              private locationService: LocationService, private experienceService: ExperienceService,
+              private payForComfortService: PayForComfortService) {
   }
 
   onSend(message: string) {
@@ -53,7 +55,7 @@ export class MessageService {
     ) {
       this.countryPrefsService.countryRequest(message).subscribe(
         (res) => {
-          this.cookieService.set('country', res['country']);
+          this.carSelectionService.requestCountryPrefs(res['country']);
           this.cookieService.set(GlobalConstants.IS_COUNTRY_KNOWN, GlobalConstants.TRUE);
           this.messages.push({text: this.replaceGender(GlobalConstants.ASK_ABOUT_FAMILY)});
         }, error => {
@@ -89,10 +91,21 @@ export class MessageService {
           this.carSelectionService.requestYearsOfDriving.next(res['experience']);
           this.cookieService.set(GlobalConstants.YEARS_OF_RIDING_KNOWN, GlobalConstants.TRUE);
           this.messages.push({text: this.replaceGender(GlobalConstants.ASK_ABOUT_ABILITY_TO_PAY_FOR_COMFORT)});
-          console.log(this.carSelectionService.requestYearsOfDriving.subscribe(data => console.log(data)));
         }, (error) => {
           console.log(error);
           this.messages.push({text: this.replaceGender(GlobalConstants.CANT_RECOGNIZE_YEAR_EXPERIENCE)});
+        }
+      );
+    } else if (!(this.cookieService.get(GlobalConstants.ABLE_TO_PAY_EXTRA) === GlobalConstants.TRUE)) {
+      this.payForComfortService.payForComfortRequest(message).subscribe(
+        (res) => {
+          this.carSelectionService.requestAbleToPayExtraForComfort.next(res['payExtra']);
+          this.cookieService.set(GlobalConstants.ABLE_TO_PAY_EXTRA, GlobalConstants.TRUE);
+          // send object to server with all answers
+          // push to messages response with selected car(-s)
+        }, (error) => {
+          console.log(error);
+          this.messages.push({text: this.replaceGender(GlobalConstants.CANT_RECOGNIZE_ABILITY_TO_PAY_EXTRA)});
         }
       );
     }

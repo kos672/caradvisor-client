@@ -22,6 +22,7 @@ export class GlobalConstants {
   static readonly FAMILY_PATH = GlobalConstants.rootPath + 'family';
   static readonly LOCATION_PATH = GlobalConstants.rootPath + 'location';
   static readonly EXPERIENCE_PATH = GlobalConstants.rootPath + 'experience';
+  static readonly PAY_FOR_COMFORT_PATH = GlobalConstants.rootPath + 'pay-extra';
 
   /* Questions templates */
   static readonly ASK_NAME_QUESTION = 'Dzień dobry. Wita doradca samochodowy CarAdvisor. Jak Pan/Pani ma na imię?';
@@ -30,14 +31,15 @@ export class GlobalConstants {
   static readonly ASK_ABOUT_FAMILY = 'Czy ma %gend% rodzinę?';
   static readonly ASK_ABOUT_LIVING_LOCATION = 'Czy często %gend% będzie jeździć po terenach podmiejskich?';
   static readonly ASK_ABOUT_EXPERIENCE = 'Ile lat doświadczenia jazdy posiada %gend%?';
-  static readonly ASK_ABOUT_ABILITY_TO_PAY_FOR_COMFORT = 'Czy jest %gend% w stanie zapłacić więcej za komfort?';
+  static readonly ASK_ABOUT_ABILITY_TO_PAY_FOR_COMFORT = 'Czy jest %gend% w stanie zapłacić więcej za wygodę?';
 
   /* Failure to recognize */
   static readonly CANT_RECOGNIZE_PREFS = 'Nie mogę zweryfikować czy %gend% ma preferencje. Proszę odpowiedzieć jeszcze raz.';
   static readonly IMPOSSIBLE_RECOGNIZE_NAME = 'Niestety nie mogę rozpoznać imię. Proszę podać ponownie.';
   static readonly CANT_RECOGNIZE_COUNTRY = 'Nie mogę zweryfikować podany kraj. Proszę podać ponownie.';
-  static readonly CANT_RECOGNIZE_FAMILY = 'Nie mogę pozpoznać czy %gend% ma rodzinę. Proszę odpowiedzieć jeszcze raz.';
+  static readonly CANT_RECOGNIZE_FAMILY = 'Nie mogę rozpoznać czy %gend% ma rodzinę. Proszę odpowiedzieć jeszcze raz.';
   static readonly CANT_RECOGNIZE_OFTEN_DRIVEN_LOCATION = 'Nie mogę rozpoznać na jakich terenach %gend% będzie częściej jeżdzić. Proszę odpowiedzieć ponownie.';
   static readonly CANT_RECOGNIZE_YEAR_EXPERIENCE = 'Niestety nie mogę na podstawie uzyskanej odpowiedzi oszacować ile %gend% ma lat doświadczenia w prowadzeniu samochodu.';
+  static readonly CANT_RECOGNIZE_ABILITY_TO_PAY_EXTRA = 'Nie mogę zrozumieć czy %gend% będzie w stanie przepłacić za wygodę. Poproszę jeszcze raz.';
 
 }

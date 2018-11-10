@@ -13,6 +13,7 @@ import {CountryPrefsService} from './shared/country-prefs.service';
 import {FamilyService} from './shared/family.service';
 import {CarSelectionService} from './shared/car-selection.service';
 import {ExperienceService} from './shared/experience.service';
+import {PayForComfortService} from './shared/pay-for-comfort.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import {ExperienceService} from './shared/experience.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [CookieService, MessageService, HttpClient, CountryPrefsService, FamilyService, CarSelectionService, ExperienceService],
+  providers: [CookieService, MessageService,
+    HttpClient, CountryPrefsService,
+    FamilyService, CarSelectionService,
+    ExperienceService, PayForComfortService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
