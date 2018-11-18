@@ -23,6 +23,7 @@ export class GlobalConstants {
   static readonly LOCATION_PATH = GlobalConstants.rootPath + 'location';
   static readonly EXPERIENCE_PATH = GlobalConstants.rootPath + 'experience';
   static readonly PAY_FOR_COMFORT_PATH = GlobalConstants.rootPath + 'pay-extra';
+  static readonly CAR_SELECTION_PATH = GlobalConstants.rootPath + 'car-selection';
 
   /* Questions templates */
   static readonly ASK_NAME_QUESTION = 'Dzień dobry. Wita doradca samochodowy CarAdvisor. Jak Pan/Pani ma na imię?';
@@ -41,5 +42,6 @@ export class GlobalConstants {
   static readonly CANT_RECOGNIZE_OFTEN_DRIVEN_LOCATION = 'Nie mogę rozpoznać na jakich terenach %gend% będzie częściej jeżdzić. Proszę odpowiedzieć ponownie.';
   static readonly CANT_RECOGNIZE_YEAR_EXPERIENCE = 'Niestety nie mogę na podstawie uzyskanej odpowiedzi oszacować ile %gend% ma lat doświadczenia w prowadzeniu samochodu.';
   static readonly CANT_RECOGNIZE_ABILITY_TO_PAY_EXTRA = 'Nie mogę zrozumieć czy %gend% będzie w stanie przepłacić za wygodę. Poproszę jeszcze raz.';
+  static readonly CANT_FIND_ANY_CAR = 'Niestety nie udało się znaleźć odpowiedniego auta. Proszę odświeżyć stronę i sprobować ponownie. Przypomnę też, że preferencje kraju pochodzenia dużo zawężają wyniki';
 
 }

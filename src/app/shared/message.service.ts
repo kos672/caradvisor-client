@@ -42,6 +42,7 @@ export class MessageService {
             this.cookieService.set(GlobalConstants.HAS_COUNTRY_PREFS, GlobalConstants.TRUE);
             this.messages.push({text: GlobalConstants.ASK_ABOUT_COUNTRY});
           } else if (res['preferences'] === 'n') {
+            this.carSelectionService.requestCountryPrefs.next('');
             this.cookieService.set(GlobalConstants.ASKED_ABOUT_COUNTRY_PREFS, GlobalConstants.TRUE);
             this.messages.push({text: this.replaceGender(GlobalConstants.ASK_ABOUT_FAMILY)});
           }
@@ -55,7 +56,7 @@ export class MessageService {
     ) {
       this.countryPrefsService.countryRequest(message).subscribe(
         (res) => {
-          this.carSelectionService.requestCountryPrefs(res['country']);
+          this.carSelectionService.requestCountryPrefs.next(res['country']);
           this.cookieService.set(GlobalConstants.IS_COUNTRY_KNOWN, GlobalConstants.TRUE);
           this.messages.push({text: this.replaceGender(GlobalConstants.ASK_ABOUT_FAMILY)});
         }, error => {
@@ -77,7 +78,7 @@ export class MessageService {
     } else if (!(this.cookieService.get(GlobalConstants.LIVING_LOCATION_KNOWN) === GlobalConstants.TRUE)) {
       this.locationService.locationRequest(message).subscribe(
         (res) => {
-          this.carSelectionService.requestLivingLocation.next(res['location']);
+          this.carSelectionService.requestOffroadIsOftenDrivenLocation.next(res['location']);
           this.cookieService.set(GlobalConstants.LIVING_LOCATION_KNOWN, GlobalConstants.TRUE);
           this.messages.push({text: this.replaceGender(GlobalConstants.ASK_ABOUT_EXPERIENCE)});
         }, (error) => {
@@ -102,7 +103,15 @@ export class MessageService {
           this.carSelectionService.requestAbleToPayExtraForComfort.next(res['payExtra']);
           this.cookieService.set(GlobalConstants.ABLE_TO_PAY_EXTRA, GlobalConstants.TRUE);
           // send object to server with all answers
-          // push to messages response with selected car(-s)
+          this.carSelectionService.sendAnswersSelection().subscribe(
+            (response) => {
+              console.log(response);
+            }, (error) => {
+              this.messages.push({text: GlobalConstants.CANT_FIND_ANY_CAR});
+              console.log(error);
+            }
+          );
+          // TODO: if successful -> display result
         }, (error) => {
           console.log(error);
           this.messages.push({text: this.replaceGender(GlobalConstants.CANT_RECOGNIZE_ABILITY_TO_PAY_EXTRA)});
