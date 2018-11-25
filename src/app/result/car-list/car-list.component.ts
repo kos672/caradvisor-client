@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CarDto} from '../../shared/cardto.model';
-import {CarSelectionService} from '../../shared/car-selection.service';
+import {ResultService} from '../../shared/result.service';
 
 @Component({
   selector: 'app-car-list',
@@ -11,19 +11,18 @@ export class CarListComponent implements OnInit {
 
   cars: CarDto[] = [];
 
-  // constructor(private resultService: ResultService) {
-  // }
-  constructor(private carService: CarSelectionService) {
+  constructor(private resultService: ResultService) {
   }
 
   ngOnInit() {
-    // this.cars = this.resultService.cars;
-    this.carService.getAllCars().subscribe(
-      cars => {
-        this.cars = cars;
-        console.log(cars);
-      }
-    );
+    this.cars = this.resultService.cars;
+    this.reassignIDs(this.cars);
+  }
+
+  private reassignIDs(cars: CarDto[]): void {
+    for (let i = 0; i < cars.length; i++) {
+      cars[i].id = i;
+    }
   }
 
 }
