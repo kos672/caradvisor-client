@@ -17,6 +17,8 @@ import {PayForComfortService} from './shared/pay-for-comfort.service';
 import {ProcessComponent} from './process/process.component';
 import {ResultComponent} from './result/result.component';
 import {AppRoutingModule} from './shared/app-routing.module';
+import {CarListComponent} from './result/car-list/car-list.component';
+import {CarComponent} from './result/car/car.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import {AppRoutingModule} from './shared/app-routing.module';
     MessageComponent,
     ProcessComponent,
     ResultComponent,
+    CarListComponent,
+    CarComponent,
   ],
   imports: [
     BrowserModule,
