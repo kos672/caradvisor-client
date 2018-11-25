@@ -4,6 +4,7 @@ export interface CarDto {
   model: string;
   engine: string;
   engineDisplacement: number;
+  imagePath: string;
   transmission: string;
   drivetrain: string;
   doors: number;
