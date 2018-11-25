@@ -32,7 +32,6 @@ export class CarSelectionService {
 
   sendAnswersSelection() {
     this.prepareCarSelectionObject();
-    console.log(this.carSelectionObj);
     return this.http.post<CarDto[]>(GlobalConstants.CAR_SELECTION_PATH, this.carSelectionObj);
   }
 

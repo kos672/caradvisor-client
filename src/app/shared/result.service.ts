@@ -6,7 +6,7 @@ import {CarDto} from './cardto.model';
 })
 export class ResultService {
 
-  cars: CarDto[];
+  cars: CarDto[] = [];
 
   constructor() {
   }
