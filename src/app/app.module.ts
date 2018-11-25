@@ -14,6 +14,9 @@ import {FamilyService} from './shared/family.service';
 import {CarSelectionService} from './shared/car-selection.service';
 import {ExperienceService} from './shared/experience.service';
 import {PayForComfortService} from './shared/pay-for-comfort.service';
+import {ProcessComponent} from './process/process.component';
+import {ResultComponent} from './result/result.component';
+import {AppRoutingModule} from './shared/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,10 +25,13 @@ import {PayForComfortService} from './shared/pay-for-comfort.service';
     ContentComponent,
     FooterComponent,
     MessageComponent,
+    ProcessComponent,
+    ResultComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [CookieService, MessageService,
     HttpClient, CountryPrefsService,
