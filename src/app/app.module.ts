@@ -19,6 +19,7 @@ import {ResultComponent} from './result/result.component';
 import {AppRoutingModule} from './shared/app-routing.module';
 import {CarListComponent} from './result/car-list/car-list.component';
 import {CarComponent} from './result/car/car.component';
+import {CarDetailComponent} from './result/car-detail/car-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {CarComponent} from './result/car/car.component';
     ResultComponent,
     CarListComponent,
     CarComponent,
+    CarDetailComponent,
   ],
   imports: [
     BrowserModule,

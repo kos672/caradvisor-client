@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-6">
+    <img [src]="car.imagePath" alt="{{car.manufacturer}}_{{car.model}}.jpg" height="300" width="400">
+  </div>
+  <div class="col-md-6">
+    <h3>{{car.manufacturer}}</h3>
+    <h3>{{car.model}}</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h5>Silnik: {{car.engine}}</h5>
+  </div>
+  <div class="col-md-6">
+    <h5>Pojemność: {{car.engineDisplacement | number}} l.</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h5>Skrzynia biegów: {{car.transmission}}</h5>
+  </div>
+  <div class="col-md-6">
+    <h5>Napęd: {{car.drivetrain}}</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h5>Liczba miejsc: {{car.seats}}</h5>
+  </div>
+  <div class="col-md-6">
+    <h5>Liczba drzwi: {{car.doors}}</h5>
+  </div>
+</div>
