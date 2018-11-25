@@ -105,18 +105,15 @@ export class MessageService {
         (res) => {
           this.carSelectionService.requestAbleToPayExtraForComfort.next(res['payExtra']);
           this.cookieService.set(GlobalConstants.ABLE_TO_PAY_EXTRA, GlobalConstants.TRUE);
-          // send object to server with all answers
           this.carSelectionService.sendAnswersSelection().subscribe(
             (cars: CarDto[]) => {
-              this.router.navigate(['result']);
               this.resultService.cars = cars;
-              console.log(cars);
+              this.router.navigate(['result']);
             }, (error) => {
               this.messages.push({text: GlobalConstants.CANT_FIND_ANY_CAR});
               console.log(error);
             }
           );
-          // TODO: if successful -> display result
         }, (error) => {
           console.log(error);
           this.messages.push({text: this.replaceGender(GlobalConstants.CANT_RECOGNIZE_ABILITY_TO_PAY_EXTRA)});
