@@ -8,6 +8,9 @@ import {CarSelectionService} from './car-selection.service';
 import {LocationService} from './location.service';
 import {ExperienceService} from './experience.service';
 import {PayForComfortService} from './pay-for-comfort.service';
+import {CarDto} from './cardto.model';
+import {Router} from '@angular/router';
+import {ResultService} from './result.service';
 
 @Injectable()
 export class MessageService {
@@ -18,7 +21,7 @@ export class MessageService {
   constructor(private cookieService: CookieService, private carSelectionService: CarSelectionService,
               private nameService: NameService, private countryPrefsService: CountryPrefsService, private familyService: FamilyService,
               private locationService: LocationService, private experienceService: ExperienceService,
-              private payForComfortService: PayForComfortService) {
+              private payForComfortService: PayForComfortService, private router: Router, private resultService: ResultService) {
   }
 
   onSend(message: string) {
@@ -104,8 +107,10 @@ export class MessageService {
           this.cookieService.set(GlobalConstants.ABLE_TO_PAY_EXTRA, GlobalConstants.TRUE);
           // send object to server with all answers
           this.carSelectionService.sendAnswersSelection().subscribe(
-            (response) => {
-              console.log(response);
+            (cars: CarDto[]) => {
+              this.router.navigate(['result']);
+              this.resultService.cars = cars;
+              console.log(cars);
             }, (error) => {
               this.messages.push({text: GlobalConstants.CANT_FIND_ANY_CAR});
               console.log(error);
