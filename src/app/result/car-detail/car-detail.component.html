@@ -9,7 +9,7 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <h5>Silnik: {{car.engine}}</h5>
+    <h5>Silnik: {{car.engine === 'petrol' ? 'benzyna' : car.engine}}</h5>
   </div>
   <div class="col-md-6">
     <h5>Pojemność: {{car.engineDisplacement | number}} l.</h5>
@@ -17,10 +17,15 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <h5>Skrzynia biegów: {{car.transmission}}</h5>
+    <h5>Skrzynia biegów: {{car.transmission === 'automatic' ? 'automatyczna' : 'manualna'}}</h5>
   </div>
   <div class="col-md-6">
     <h5>Napęd: {{car.drivetrain}}</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h5>Spalanie paliwa: {{car.fuelConsumption | number}} l/100km.</h5>
   </div>
 </div>
 <div class="row">
