@@ -20,6 +20,10 @@ import {AppRoutingModule} from './shared/app-routing.module';
 import {CarListComponent} from './result/car-list/car-list.component';
 import {CarComponent} from './result/car/car.component';
 import {CarDetailComponent} from './result/car-detail/car-detail.component';
+import {LoginComponent} from './login/login.component';
+import {FormsModule} from '@angular/forms';
+import {AuthService} from './shared/auth.service';
+import {LoginActivate} from './login/login-activate';
 
 @NgModule({
   declarations: [
@@ -33,16 +37,18 @@ import {CarDetailComponent} from './result/car-detail/car-detail.component';
     CarListComponent,
     CarComponent,
     CarDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [CookieService, MessageService,
     HttpClient, CountryPrefsService,
     FamilyService, CarSelectionService,
-    ExperienceService, PayForComfortService],
+    ExperienceService, PayForComfortService, AuthService, LoginActivate],
   bootstrap: [AppComponent]
 })
 export class AppModule {
