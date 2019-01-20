@@ -24,6 +24,7 @@ export class GlobalConstants {
   static readonly EXPERIENCE_PATH = GlobalConstants.rootPath + 'experience';
   static readonly PAY_FOR_COMFORT_PATH = GlobalConstants.rootPath + 'pay-extra';
   static readonly CAR_SELECTION_PATH = GlobalConstants.rootPath + 'car-selection';
+  static readonly AUTHENTICATION_PATH = GlobalConstants.rootPath + 'authentication';
 
   /* Questions templates */
   static readonly ASK_NAME_QUESTION = 'Dzień dobry. Wita doradca samochodowy CarAdvisor. Jak Pan/Pani ma na imię?';
